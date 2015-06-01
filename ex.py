@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sys, getopt
-import json,requests,re, string
+import json,requests,re, string, os
 
 def find_between( s, first, last ):
     try:
@@ -148,8 +148,8 @@ for line in open(year+"/"+platform+"/csv/"+specialty+".csv",'r').readlines():
         sim_val = SIM[statecode];
         me_val = ME[statecode];
         Scount[statecode] += 1;
-
-        print >>fout,line,"+",statecode,"+",sim_val,"+",me_val;
+        
+        print >>fout,line.rstrip(),",",statecode,",",sim_val,",",me_val;
         
         if sim_val == "FFM":
             FFM_cnt += 1;
